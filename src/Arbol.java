@@ -11,7 +11,6 @@ public class Arbol {
         this.raiz = null;
     }
 
-    // Método para insertar un nodo en el ABB
     public void insertarNodo(Nodo nuevoNodo) {
         if (raiz == null) {
             raiz = nuevoNodo;
@@ -36,7 +35,6 @@ public class Arbol {
         }
     }
 
-    // Método para buscar un contacto por nombre
     public Nodo buscarPorNombre(String nombre) {
         return buscarPorNombreRecursivo(raiz, nombre.toUpperCase());
     }
@@ -55,7 +53,6 @@ public class Arbol {
         }
     }
 
-    // Mostrar los contactos en la tabla
     public void mostrar(JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
@@ -76,7 +73,6 @@ public class Arbol {
         }
     }
 
-    // Cargar contactos desde un archivo
     public void desdeArchivo(String ruta) {
         try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
             String linea;
@@ -90,7 +86,6 @@ public class Arbol {
         }
     }
 
-    // Obtener la posición del nodo en InOrden
     public int obtenerPosicionNodo(Nodo nodoBuscado) {
         return buscarPosicionInOrden(raiz, nodoBuscado, -1);
     }

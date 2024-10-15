@@ -23,35 +23,29 @@ public class App {
         frame.setSize(600, 400);
         frame.setLayout(new BorderLayout());
 
-        // Crear tabla de contactos
         tabla = new JTable();
         arbol.mostrar(tabla);
         JScrollPane scrollPane = new JScrollPane(tabla);
         frame.add(scrollPane, BorderLayout.CENTER);
 
-        // Panel para botones y campo de búsqueda
-        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Ajuste del layout
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-        // Crear botones con texto y sus íconos
         JButton btnCargar = new JButton("Cargar", new ImageIcon("cargar.png"));
         JButton btnAgregar = new JButton("Agregar", new ImageIcon("agregar.png"));
         JButton btnBuscar = new JButton("Buscar", new ImageIcon("buscar.png"));
 
-        // Ajustar el tamaño del botón al contenido del texto
         btnCargar.setPreferredSize(new Dimension(btnCargar.getPreferredSize().width + 30, 30));
         btnAgregar.setPreferredSize(new Dimension(btnAgregar.getPreferredSize().width + 30, 30));
         btnBuscar.setPreferredSize(new Dimension(btnBuscar.getPreferredSize().width + 30, 30));
 
-        // Añadir botones y campo de texto al panel
         panelBotones.add(btnAgregar);
         panelBotones.add(btnCargar);
-        campoBusqueda = new JTextField(10); // Campo de texto para buscar
+        campoBusqueda = new JTextField(10);
         panelBotones.add(campoBusqueda);
         panelBotones.add(btnBuscar);
 
         frame.add(panelBotones, BorderLayout.NORTH);
 
-        // Acciones de botones
         btnCargar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,7 +116,7 @@ public class App {
             Nodo nodoEncontrado = arbol.buscarPorNombre(nombreBuscado);
             if (nodoEncontrado != null) {
                 int fila = arbol.obtenerPosicionNodo(nodoEncontrado);
-                tabla.setRowSelectionInterval(fila, fila); // Resalta la fila en la tabla
+                tabla.setRowSelectionInterval(fila, fila);
             } else {
                 JOptionPane.showMessageDialog(frame, "Contacto no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
             }
